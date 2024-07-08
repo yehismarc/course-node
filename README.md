@@ -1,2 +1,6 @@
-# course-node
-Curso de Udemy | Legacy - Node: De cero a experto || Fernando Herrera (github: Klerith)
+# README
+
+> [!NOTE]
+> Curso de Udemy
+> - Legacy - Node: De cero a experto
+> - Fernando Herrera (github: Klerith)
