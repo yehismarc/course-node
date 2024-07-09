@@ -1,0 +1,16 @@
+{
+  "name": "03-node_bases",
+  "version": "0.0.1",
+  "description": "Es una tabla de multiplicar con archivo de texto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base3": "nose app --base=3"
+  },
+  "author": "Yehismar Carvajal",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.7.2"
+  }
+}
