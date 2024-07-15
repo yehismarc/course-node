@@ -1,4 +1,6 @@
-import { readInput, inquirerMenu, pause } from "./helpers/inquirer.js"
+import 'dotenv/config'
+
+import { readInput, inquirerMenu, pause, listLocations } from "./helpers/inquirer.js"
 import { Searches } from "./models/searches.js";
 
 
@@ -8,36 +10,48 @@ const main = async() => {
     let opt;
 
     do {
-        // Print menu
+        // Print menu 
         opt = await inquirerMenu();
 
         switch (opt) {
             case 1: 
-                // Mostrar mensaje
+                // Show message
                 const location = await readInput('Cuidad: ');
-                await searches.city(location);
 
-                // Buscar los lugares
+                // Search for location
+                const locations = await searches.city(location);
 
-                // Selecccionar el lugar
-                
-                // Clima
+                // Select a location
+                const id = await listLocations(locations);
+                if(id === '0') continue;
 
-                // Mostrar resultados
+                const selectedLocation = locations.find( l => l.id === id);
 
+                // --- Save DB
+                searches.addHistory(selectedLocation.name)
+
+                //console.log({selectedLocation});
+
+                // Weather
+                const weather = await searches.climatedLocations(selectedLocation.lat, selectedLocation.lng)
+
+                // Show results
+                console.clear();
                 console.log('\nInformación de la cuidad\n'.green);
-                console.log('Cuidad:', );
-                console.log('Lat:', );
-                console.log('Lng:', );
-                console.log('Temperatura:', );
-                console.log('Mínima:', );
-                console.log('Maxima:', );
-                
+                console.log('Cuidad:', selectedLocation.name.green);
+                console.log('Lat:', selectedLocation.lat);
+                console.log('Lng:', selectedLocation.lng);
+                console.log('Temperatura:', weather.temp);
+                console.log('Mínima:', weather.min);
+                console.log('Maxima:', weather.max);
+                console.log('Como está el clima:', weather.desc.green);
                 
             break;
-            case 2: 
-                
-                console.log('Esta seleccionando la opcion ' + opt)
+            case 2:
+                searches.capitalizedHistory.forEach((location, i) => {
+                    const idx = `${i + 1}.`.green;
+                    console.log(`${idx} ${location}`);
+                }); 
 
             break;
         }
