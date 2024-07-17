@@ -5,5 +5,7 @@
 /04-app_tasks/node_modules/
 
 /05-climated_app/node_modules/
+/05-climated_app/.env
 
 /06-webserver/node_modules/
+/06-webserver/.env
