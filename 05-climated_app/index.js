@@ -3,7 +3,6 @@ import 'dotenv/config'
 import { readInput, inquirerMenu, pause, listLocations } from "./helpers/inquirer.js"
 import { Searches } from "./models/searches.js";
 
-
 const main = async() => {
 
     const searches = new Searches();
