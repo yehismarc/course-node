@@ -15,3 +15,6 @@
 
 /08-websockets_server/node_modules/
 /08-websockets_server/.env
+
+/09-socket-queues/node_modules/
+/09-socket-queues/.env
