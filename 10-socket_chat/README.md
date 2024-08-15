@@ -1,4 +1,4 @@
-# README - WebServer + RestServer
+# README - Socket Chat
 
 > [!NOTE]
 > Curso de Udemy

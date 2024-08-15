@@ -1,4 +1,4 @@
-# README - Websockets Server
+# README - Socket Queues
 
 > [!NOTE]
 > Curso de Udemy
